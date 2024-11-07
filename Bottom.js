@@ -1,29 +1,29 @@
-import React, { useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import BottomSheet from 'reanimated-bottom-sheet';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import React, { useRef } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import BottomSheet from 'reanimated-bottom-sheet'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const SimpleBottomSheet = () => {
-  const sheetRef = useRef(null);
+  const sheetRef = useRef(null)
 
   const renderContent = () => (
     <View style={styles.sheetContent}>
       <Text style={styles.sheetText}>This is a simple bottom sheet!</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => sheetRef.current.snapTo(1)} // Close bottom sheet
+        onPress={() => sheetRef.current.snapTo(1)}
       >
         <Text style={styles.buttonText}>Close Sheet</Text>
       </TouchableOpacity>
     </View>
-  );
+  )
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => sheetRef.current.snapTo(0)} // Open bottom sheet
+          onPress={() => sheetRef.current.snapTo(0)}
         >
           <Text style={styles.buttonText}>Open Bottom Sheet</Text>
         </TouchableOpacity>
@@ -36,8 +36,8 @@ const SimpleBottomSheet = () => {
         />
       </View>
     </GestureHandlerRootView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
   },
-});
+})
 
-export default SimpleBottomSheet;
+export default SimpleBottomSheet

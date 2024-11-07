@@ -1,148 +1,148 @@
-import React, { useRef, useEffect } from 'react';
-import { View, StyleSheet, Animated, Easing, Image, ScrollView, Text, Button, TouchableOpacity } from 'react-native';
+import React, { useRef, useEffect } from 'react'
+import { View, StyleSheet, Animated, Easing, Image, ScrollView, Text, Button, TouchableOpacity } from 'react-native'
 
 const CartWithFallingProducts = () => {
-  const cartMove = useRef(new Animated.Value(0)).current; // Horizontal cart movement
-  const productFall1 = useRef(new Animated.Value(-150)).current; // Vertical product falling for product 1
-  const productFall2 = useRef(new Animated.Value(-150)).current; // Vertical product falling for product 2
-  const productOpacity1 = useRef(new Animated.Value(1)).current; // Opacity for product 1
-  const productOpacity2 = useRef(new Animated.Value(1)).current; // Opacity for product 2
+  const cartMove = useRef(new Animated.Value(0)).current;
+  const productFall1 = useRef(new Animated.Value(-150)).current
+  const productFall2 = useRef(new Animated.Value(-150)).current
+  const productOpacity1 = useRef(new Animated.Value(1)).current
+  const productOpacity2 = useRef(new Animated.Value(1)).current
 
   useEffect(() => {
-    // Move the cart back and forth horizontally
+
     const cartAnimation = Animated.loop(
       Animated.sequence([
         Animated.timing(cartMove, {
-          toValue: 10, // Move to the right
+          toValue: 10,
           duration: 500,
           easing: Easing.linear,
           useNativeDriver: true,
         }),
         Animated.timing(cartMove, {
-          toValue: -10, // Move to the left
+          toValue: -10,
           duration: 500,
           easing: Easing.linear,
           useNativeDriver: true,
         }),
       ])
-    );
+    )
 
-    // Handle falling animation for both products
+
     const productAnimations = [
-      // Product 1 falling and hiding
+
       Animated.sequence([
         Animated.timing(productFall1, {
-          toValue: 150, // Fall into the cart
+          toValue: 150,
           duration: 800,
           useNativeDriver: true,
         }),
         Animated.timing(productOpacity1, {
-          toValue: 0, // Hide the product after falling
+          toValue: 0,
           duration: 100,
           useNativeDriver: true,
         }),
         Animated.timing(productFall1, {
-          toValue: -150, // Reset product position for the next fall
+          toValue: -150,
           duration: 0,
           useNativeDriver: true,
         }),
         Animated.timing(productOpacity1, {
-          toValue: 1, // Make the product visible again
+          toValue: 1,
           duration: 0,
           useNativeDriver: true,
         }),
       ]),
 
-      // Product 2 falling and hiding
+
       Animated.sequence([
         Animated.timing(productFall2, {
-          toValue: 150, // Fall into the cart
+          toValue: 150,
           duration: 800,
           useNativeDriver: true,
         }),
         Animated.timing(productOpacity2, {
-          toValue: 0, // Hide the product after falling
+          toValue: 0,
           duration: 100,
           useNativeDriver: true,
         }),
         Animated.timing(productFall2, {
-          toValue: -150, // Reset product position for the next fall
+          toValue: -150,
           duration: 0,
           useNativeDriver: true,
         }),
         Animated.timing(productOpacity2, {
-          toValue: 1, // Make the product visible again
+          toValue: 1,
           duration: 0,
           useNativeDriver: true,
         }),
       ]),
-    ];
+    ]
 
-    // Start both the cart animation and product animations
-    cartAnimation.start();
+
+    cartAnimation.start()
     Animated.loop(
       Animated.stagger(1000, productAnimations)
-    ).start();
+    ).start()
 
     return () => {
-      cartAnimation.stop(); // Clean up animations on unmount
-    };
-  }, [cartMove, productFall1, productFall2, productOpacity1, productOpacity2]);
+      cartAnimation.stop()
+    }
+  }, [cartMove, productFall1, productFall2, productOpacity1, productOpacity2])
 
   return (
     <ScrollView style={styles.scrollContainer}>
-      
+
       <View style={styles.container1}>
-        {/* Falling product 1 */}
+
         <Animated.View
           style={[
             styles.product,
             {
-              transform: [{ translateY: productFall1 }], // Falling effect for product 1
-              opacity: productOpacity1, // Control product opacity for product 1
+              transform: [{ translateY: productFall1 }],
+              opacity: productOpacity1,
             },
           ]}
         >
           <Image
-            source={require('../assets/AccountImages/product.png')} // Your product 1 image
+            source={require('../assets/AccountImages/product.png')}
             style={styles.productImage}
           />
         </Animated.View>
 
-        {/* Falling product 2 */}
+
         <Animated.View
           style={[
             styles.product,
             {
-              transform: [{ translateY: productFall2 }], // Falling effect for product 2
-              opacity: productOpacity2, // Control product opacity for product 2
+              transform: [{ translateY: productFall2 }],
+              opacity: productOpacity2,
             },
           ]}
         >
           <Image
-            source={require('../assets/AccountImages/pine.png')} // Your product 2 image
+            source={require('../assets/AccountImages/pine.png')}
             style={styles.productImage}
           />
         </Animated.View>
 
-        {/* Cart */}
+
         <Animated.View
           style={[
             styles.cart,
             {
-              transform: [{ translateX: cartMove }], // Horizontal cart movement
+              transform: [{ translateX: cartMove }],
             },
           ]}
         >
           <Image
-            source={require('../assets/AccountImages/cart.png')} // Your cart image
+            source={require('../assets/AccountImages/cart.png')}
             style={styles.cartImage}
           />
         </Animated.View>
 
-        {/* Additional Components Container */}
+
         <View style={styles.container2}>
-          {/* Add additional components here */}
+
         </View>
       </View>
       <View>
@@ -163,16 +163,16 @@ const styles = StyleSheet.create({
   container1: {
     flex: 1,
     marginVertical: 20,
-    justifyContent: 'flex-end', // Align items to the bottom
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   container2: {
-    flex: 2, // Keep this for additional components
+    flex: 2,
   },
   product: {
     position: 'absolute',
     top: 0,
-    zIndex: 1, // Ensure product falls above the cart
+    zIndex: 1,
   },
   productImage: {
     width: 50,

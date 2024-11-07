@@ -93,21 +93,21 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 
-  // Special styling for the 21st item
+
   specialContainer: {
     backgroundColor: '#fff',
-    borderRadius: 50, // Round the container if needed
+    borderRadius: 50,
   },
   specialImage: {
     width: 80,
     height: 80,
-    borderRadius: 40, // Round image
+    borderRadius: 40,
   },
   specialText: {
-    color: 'blue', // Blue text for the 21st item
+    color: 'blue',
     fontWeight: 'bold',
   },
   specialLine: {
-    backgroundColor: 'none' // Customize line color for special item
+    backgroundColor: 'none'
   },
 });

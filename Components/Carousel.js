@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity,ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useRef, useMemo, useState, useEffect } from 'react'
-import BottomSheet from '@gorhom/bottom-sheet';
-const { width } = Dimensions.get('window');
-import Carousel from 'react-native-reanimated-carousel';
-import HorizontalProductsHome from './HorizontalProductsHome';
+import BottomSheet from '@gorhom/bottom-sheet'
+const { width } = Dimensions.get('window')
+import Carousel from 'react-native-reanimated-carousel'
+import HorizontalProductsHome from './HorizontalProductsHome'
 import { FlatList } from 'react-native-gesture-handler'
-import RecentlyViewed from './RecentlyViewed';
+import RecentlyViewed from './RecentlyViewed'
 
 
 
@@ -15,7 +15,7 @@ const images = [
   require('../assets/Images/flip3.jpg'),
   require('../assets/Images/flip4.png'),
   require('../assets/Images/flip5.png'),
-];
+]
 
 const threeimages = [
   {
@@ -39,38 +39,38 @@ const CarouselFlip = () => {
 
   const bottomSheetRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselRef = useRef(null);
+  const carouselRef = useRef(null)
 
   const handleLeftArrow = () => {
     if (currentIndex === 0) {
-      setCurrentIndex(images.length - 1);
+      setCurrentIndex(images.length - 1)
     } else {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - 1)
     }
-  };
+  }
 
   const handleRightArrow = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
-  };
+    setCurrentIndex((currentIndex + 1) % images.length)
+  }
 
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 1000); // change image every second
+    }, 1000);
 
-    return () => clearInterval(interval); // Clean up interval on component unmount
-  }, []);
+    return () => clearInterval(interval);
+  }, [])
 
-  // Define the snap points for the bottom sheet
-  const snapPoints = useMemo(() => ['30%', '90%', '120%',], []);
+
+  const snapPoints = useMemo(() => ['30%', '90%', '120%',], [])
 
   const handleSheetChange = (index) => {
-    // Check if the index is -1 (closed) and bring it back to the first snap point
+
     if (index === -1) {
-      bottomSheetRef.current?.snapToIndex(0); // Change to desired index (0 = '25%')
+      bottomSheetRef.current?.snapToIndex(0)
     }
-  };
+  }
 
   const renderItem = ({ item }) => {
     return (
@@ -83,66 +83,66 @@ const CarouselFlip = () => {
   }
 
   return (
-    // Wrap the component in GestureHandlerRootView
+
 
     <BottomSheet
-    style={{ backgroundColor: '#ffe6fe' }}
-    ref={bottomSheetRef}
-    index={0}
-    snapPoints={snapPoints}
-    onChange={handleSheetChange}
-  >
-    <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-      <View style={styles.carouselContainer}>
-        {/* Left Arrow */}
-        <TouchableOpacity style={styles.arrowLeft} onPress={handleLeftArrow}>
-          <Text style={styles.arrowText}>{"<"}</Text>
-        </TouchableOpacity>
+      style={{ backgroundColor: '#ffe6fe' }}
+      ref={bottomSheetRef}
+      index={0}
+      snapPoints={snapPoints}
+      onChange={handleSheetChange}
+    >
+      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+        <View style={styles.carouselContainer}>
 
-        {/* Carousel */}
-        <Carousel
-          loop={true}
-          width={width}
-          height={200}
-          autoPlay={true}
-          scrollAnimationDuration={500}
-          data={images}
-          pagingEnabled={true}
-          onSnapToItem={(index) => setCurrentIndex(index)}
-          ref={carouselRef}
-          renderItem={({ index }) => (
-            <Image
-              source={images[index]}
-              style={styles.carouselImage}
-              resizeMode="cover"
-            />
-          )}
-        />
+          <TouchableOpacity style={styles.arrowLeft} onPress={handleLeftArrow}>
+            <Text style={styles.arrowText}>{"<"}</Text>
+          </TouchableOpacity>
 
-        {/* Right Arrow */}
-        <TouchableOpacity style={styles.arrowRight} onPress={handleRightArrow}>
-          <Text style={styles.arrowText}>{">"}</Text>
-        </TouchableOpacity>
-      </View>
-      {/* ----------------------------------------------------------------- */}
-      <HorizontalProductsHome />
-      <View style={{ flex: 1 }}>
-        <Image source={require('../assets/HorizonImages/middlebanner.jpeg')} style={styles.middbanner} />
-      </View>
-      <View>
-        <RecentlyViewed />
-      </View>
-      <View style={{ flexDirection: 'row', marginBottom: 40 }}>
-        <FlatList
-          data={threeimages}
-          renderItem={renderItem}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false} // Hide the scroll indicator
-          contentContainerStyle={styles.flatListContainer} // Custom container styling
-        />
-      </View>
-    </ScrollView>
-  </BottomSheet>
+
+          <Carousel
+            loop={true}
+            width={width}
+            height={200}
+            autoPlay={true}
+            scrollAnimationDuration={500}
+            data={images}
+            pagingEnabled={true}
+            onSnapToItem={(index) => setCurrentIndex(index)}
+            ref={carouselRef}
+            renderItem={({ index }) => (
+              <Image
+                source={images[index]}
+                style={styles.carouselImage}
+                resizeMode="cover"
+              />
+            )}
+          />
+
+
+          <TouchableOpacity style={styles.arrowRight} onPress={handleRightArrow}>
+            <Text style={styles.arrowText}>{">"}</Text>
+          </TouchableOpacity>
+        </View>
+        {/* ----------------------------------------------------------------- */}
+        <HorizontalProductsHome />
+        <View style={{ flex: 1 }}>
+          <Image source={require('../assets/HorizonImages/middlebanner.jpeg')} style={styles.middbanner} />
+        </View>
+        <View>
+          <RecentlyViewed />
+        </View>
+        <View style={{ flexDirection: 'row', marginBottom: 40 }}>
+          <FlatList
+            data={threeimages}
+            renderItem={renderItem}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.flatListContainer}
+          />
+        </View>
+      </ScrollView>
+    </BottomSheet>
 
   )
 }
@@ -151,11 +151,11 @@ export default CarouselFlip
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // Ensures the container takes up full screen
+    flex: 1,
     backgroundColor: '#ffe6fe',
   },
   contentContainer: {
-    flex: 1,  // Allows for proper spacing inside the Bottom Sheet
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#ffe6fe',
@@ -196,24 +196,24 @@ const styles = StyleSheet.create({
   },
   boxcontainer: {
 
-    width: 150, // Width of each box
-    padding: 10, // Padding inside the box
-    marginRight: 10, // Space between boxes
-    backgroundColor: '#8507a1', // Background color of the box
-    borderRadius: 10, // Rounded corners
-    shadowColor: '#000', // Shadow for iOS
-    shadowOffset: { width: 0, height: 2 }, // Shadow for iOS
-    shadowOpacity: 0.3, // Shadow for iOS
-    shadowRadius: 4, // Shadow for iOS
-    elevation: 5, // Shadow for Android
-    alignItems: 'center', // Center content inside each box
+    width: 150,
+    padding: 10,
+    marginRight: 10,
+    backgroundColor: '#8507a1',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+    alignItems: 'center',
   },
   box: {
     height: 120,
     width: 120,
   },
   flatListContainer: {
-    paddingHorizontal: 10, // Padding around the flatlist
+    paddingHorizontal: 10,
   },
   subheading: {
     fontSize: 12,
@@ -230,4 +230,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
   },
-});
+})

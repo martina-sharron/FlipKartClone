@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, Image, Button,ScrollView } from 'react-native';
-import React from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import NextPartAccount from '../Components/NextPartAccount';
+import { StyleSheet, Text, View, Image, Button, ScrollView } from 'react-native'
+import React from 'react'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import NextPartAccount from '../Components/NextPartAccount'
 
 
 
@@ -9,7 +9,7 @@ const Account = () => {
 
   return (
     <ScrollView style={styles.container}>
-      {/* First Container */}
+
       <View style={styles.firstContainer}>
         <Text style={styles.numberText}>Hey! martina sharron</Text>
         <View style={styles.imgContainer}>
@@ -18,14 +18,14 @@ const Account = () => {
         </View>
       </View>
 
-      {/* Explore Plus Section */}
+
       <View style={styles.exploreplusContainer}>
         <Text style={styles.exploretxt}>Explore</Text>
-        <Image source={require('../assets/AccountImages/fliplus.png')} style={{height:20,width:20}}/>
+        <Image source={require('../assets/AccountImages/fliplus.png')} style={{ height: 20, width: 20 }} />
         <Text style={styles.plustxt}>Plus <Ionicons name="chevron-forward-outline" size={15} color="grey" /></Text>
       </View>
 
-      {/* Box Container */}
+
       <View style={styles.BoxContainer}>
         <View style={styles.boxtxt}>
           <Image style={styles.imgclr} source={require('../assets/AccountImages/order.png')} />
@@ -115,9 +115,9 @@ const Account = () => {
         <View style={styles.line} />
       </View>
       <View>
-        <Text style={{fontSize:16,fontWeight:'600'}}>Sponsored</Text>
+        <Text style={{ fontSize: 16, fontWeight: '600' }}>Sponsored</Text>
       </View>
-      <Image source={(require('../assets/AccountImages/zaruk-transformed.jpeg'))} style={{height:250,width:'100%'}}/>
+      <Image source={(require('../assets/AccountImages/zaruk-transformed.jpeg'))} style={{ height: 250, width: '100%' }} />
       <View style={styles.lineContainer}>
         <View style={styles.line} />
         <View style={styles.gap} />
@@ -130,7 +130,7 @@ const Account = () => {
         <NextPartAccount />
       </View>
     </ScrollView>
-  );
+  )
 }
 
 export default Account;
@@ -155,10 +155,10 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign:'center',
+    textAlign: 'center',
     height: 40,
     width: 65,
-    gap:5,
+    gap: 5,
   },
   icon: {
     marginLeft: 100,
@@ -173,12 +173,12 @@ const styles = StyleSheet.create({
   coinImage: {
     width: 35,
     height: 35,
-    
-    
+
+
   },
   coinText: {
     fontSize: 17,
-    
+
   },
   loanText: {
     fontSize: 16,
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     color: '#0000e6',
     fontWeight: 'bold',
   },
-  BoxContainer: {   
+  BoxContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',

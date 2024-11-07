@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, FlatList, Image } from 'react-native'
 import React from 'react'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const threeimages = [
     {
@@ -35,8 +35,8 @@ const HoriItem = ({ item }) => {
             <Image source={item.pic} style={styles.image} />
             <Text style={styles.heading}>{item.heading}</Text>
         </View>
-    );
-};
+    )
+}
 
 const Offitem = ({ item }) => {
     return (
@@ -45,8 +45,8 @@ const Offitem = ({ item }) => {
             <Text style={styles.heading1}>{item.txt}</Text>
             <Text style={styles.heading2}>{item.subtxt}</Text>
         </View>
-    );
-};
+    )
+}
 
 const NextPartAccount = () => {
     return (
@@ -72,7 +72,7 @@ const NextPartAccount = () => {
                 <Text style={{ marginTop: 20, fontSize: 20, fontWeight: '700' }}>Account Settings</Text>
             </View>
 
-            {/* Account section */}
+
             <View style={styles.AccountContainer}>
                 <View style={styles.row}>
                     <View style={styles.textContainer}>
@@ -151,7 +151,7 @@ const NextPartAccount = () => {
                 <View style={styles.line} />
             </View>
 
-            {/* my Activity */}
+
 
             <View>
                 <Text style={{ marginTop: 20, fontSize: 20, fontWeight: '700' }}>My Activity</Text>
@@ -363,15 +363,15 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
     },
     outContainer: {
-       paddingTop:10,
+        paddingTop: 10,
         borderWidth: 1,
-        borderColor:'#ccc',
+        borderColor: '#ccc',
         width: '90%',
         height: 50,
         backgroundColor: 'white',
-        justifyContent:'center',
-        alignItems:'center',
-        elevation: 4, 
+        justifyContent: 'center',
+        alignItems: 'center',
+        elevation: 4,
         marginVertical: 20,
         alignSelf: 'center',
     },

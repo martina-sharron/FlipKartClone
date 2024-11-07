@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-native';
-import React from 'react';
-import MoreonFlipCatogories from './MoreonFlipCatogories';
+import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-native'
+import React from 'react'
+import MoreonFlipCatogories from './MoreonFlipCatogories'
 
 const data = [
   { id: 1, image: require('../assets/CategoriesImage/bigbill.png'), title: 'Sale is Live' },

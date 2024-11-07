@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image,ScrollView } from 'react-native'
 import React from 'react'
-import VerticalProductCategory from '../Components/VerticalProductCategory';
-import VerticalProductCategoryRight from '../Components/VerticalProductCategoryRight';
+import VerticalProductCategory from '../Components/VerticalProductCategory'
+import VerticalProductCategoryRight from '../Components/VerticalProductCategoryRight'
 
 
 const Categories = () => {

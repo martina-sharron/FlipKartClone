@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,14 +6,14 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     backgroundColor: '#fef1c2',
-    
+
   },
   cards: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-    
-    
+
+
   },
   card1: {
     flexDirection: 'row',
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#4356f9',
     margin: 5,
   },
-card2: {
+  card2: {
     flexDirection: 'row',
     borderWidth: 1,
     height: 60,
@@ -37,7 +37,7 @@ card2: {
     borderColor: 'white',
     margin: 5,
 
-},
+  },
   images: {
     width: 30,
     height: 30,
@@ -47,22 +47,22 @@ card2: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
-    fontStyle:'italic'
+    fontStyle: 'italic'
   },
   textStyle2: {
     fontSize: 20,
     color: '#777777',
     fontWeight: 'bold',
-    fontStyle:'italic'
+    fontStyle: 'italic'
   },
   secondheader: {
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between'
-},
-SwitchView: {
+  },
+  SwitchView: {
     flexWrap: 'wrap'
-},
+  },
   brandMallText: {
     fontSize: 16,
     color: '#848482',
@@ -71,12 +71,12 @@ SwitchView: {
     flexDirection: 'row',
   },
   searchInput: {
-    width:290,
+    width: 290,
     fontWeight: '600',
     backgroundColor: '#ffffff',
     borderRadius: 8,
     elevation: 3,
-    
+
   },
   searchIcon: {
     width: 20,
@@ -94,7 +94,7 @@ SwitchView: {
   saleSection: {
     marginVertical: 20,
   },
- 
+
   saleBanner: {
     width: 400,
     height: 380,
@@ -104,9 +104,9 @@ SwitchView: {
   sprinkleStars: {
     position: 'absolute',
     width: 300,
-    height: 300, 
-    zIndex: 1, 
+    height: 300,
+    zIndex: 1,
   }
-    
-});
+
+})
 

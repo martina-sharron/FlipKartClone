@@ -1,21 +1,21 @@
 import { Text, View, Image } from 'react-native'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { styles } from '../Styling/Style'
 import { Switch, TextInput } from 'react-native-paper'
-import LottieView from 'lottie-react-native';
-import CarouselFlip from '../Components/Carousel';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import LottieView from 'lottie-react-native'
+import CarouselFlip from '../Components/Carousel'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 
 export default function Home() {
-  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const placeholders = ['Shoes', 'Mobile', 'Watch', 'HomeApp']
 
   useEffect(() => {
-   const interval = setInterval(() => {
-      setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
+    const interval = setInterval(() => {
+      setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length)
     }, 500)
-    return () => clearInterval(interval);
+    return () => clearInterval(interval)
   }, [placeholders.length])
 
 
@@ -27,7 +27,7 @@ export default function Home() {
           source={require('../assets/JSON/Party.json')}
           autoPlay
           loop
-          style={styles.sprinkleStars} 
+          style={styles.sprinkleStars}
         />
 
         <View style={styles.card1}>
@@ -47,7 +47,7 @@ export default function Home() {
         </View>
       </View>
 
-      {/* Switch and Input  */}
+
       <View style={styles.secondheader}>
         <View style={styles.SwitchView}>
           <Text style={{ color: '#848482', fontSize: 16 }}>Brand Mall</Text>
@@ -84,14 +84,14 @@ export default function Home() {
         </View>
       </View>
 
-      {/* Sale and Banner Section */}
+
       <View style={styles.saleSection}>
         <Image
           style={styles.saleBanner}
           source={require('../assets/Images/alya1.jpeg')}
         />
-        </View>
+      </View>
       <CarouselFlip />
     </GestureHandlerRootView>
-  );
+  )
 }

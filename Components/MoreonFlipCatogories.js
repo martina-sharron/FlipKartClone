@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native'
+import React from 'react'
 
 const data = [
   { id: 1, image: require('../assets/CategoriesImage/beauty.jpg'), name: 'cosmetics' },
@@ -30,16 +30,16 @@ const FlipItem = () => {
       <Image source={item.image} style={styles.img} />
       <Text style={styles.itemText}>{item.name}</Text>
     </View>
-  ));
-};
+  ))
+}
 const TriedItem = () => {
     return Tata.map((item) => (
       <View key={item.id} style={styles.itemContainer}>
         <Image source={item.image} style={styles.img} />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
-    ));
-  };
+    ))
+  }
 
 const MoreonFlipCatogories = () => {
   return (
@@ -57,8 +57,8 @@ const MoreonFlipCatogories = () => {
         {TriedItem()}
       </View>
     </View>
-  );
-};
+  )
+}
 
 export default MoreonFlipCatogories;
 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   Morecontainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between', // Ensure spacing between items
+    justifyContent: 'space-between', 
   },
   itemContainer: {
     alignItems: 'center',

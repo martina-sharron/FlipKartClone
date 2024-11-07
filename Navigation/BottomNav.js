@@ -1,11 +1,11 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../Screen/Home';
-import Explore from '../Screen/Explore';
-import Categories from '../Screen/Categories';
-import Account from '../Screen/Account';
-import Cart from '../Screen/Cart';
-import { Image } from 'react-native';
-import { fontConfig } from 'react-native-paper/lib/typescript/styles/fonts';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Home from '../Screen/Home'
+import Explore from '../Screen/Explore'
+import Categories from '../Screen/Categories'
+import Account from '../Screen/Account'
+import Cart from '../Screen/Cart'
+import { Image } from 'react-native'
+
 
 const Tab = createBottomTabNavigator();
 
@@ -13,12 +13,12 @@ export default function BottomNav() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { backgroundColor: '#fff', height: 60 }, // Customize tab bar style
+        tabBarStyle: { backgroundColor: '#fff', height: 60 },
       }}
     >
       <Tab.Screen
         options={{
-          
+
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Image
@@ -28,12 +28,12 @@ export default function BottomNav() {
               style={{
                 height: 26,
                 width: 26,
-                tintColor: focused ? '#1F74BA' : '#000000', // Change color on focus
+                tintColor: focused ? '#1F74BA' : '#000000',
               }}
             />
           ),
         }}
-        name="Home" 
+        name="Home"
         component={Home}
       />
       <Tab.Screen
